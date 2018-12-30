@@ -6,7 +6,7 @@ from mininet.util import dumpNodeConnections
 from mininet.log import setLogLevel
 
 
-class SingleSwitchTopo(Topo):
+class DoubleSwitchTopo(Topo):
     def __init__(self, n=2, **opts):
         Topo.__init__(self, **opts)
         switch1 = self.addSwitch('s1')
@@ -24,7 +24,7 @@ class SingleSwitchTopo(Topo):
 
 
 def perfTest():
-    topo = SingleSwitchTopo(n=6)
+    topo = DoubleSwitchTopo(n=6)
     net = Mininet(topo=topo, host=CPULimitedHost, link=TCLink)
     net.start()
     print "Dumping host connections"
